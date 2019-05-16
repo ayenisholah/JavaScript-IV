@@ -23,3 +23,24 @@ class Instructor extends Person {
         return `${Student.name} receives a perfect score on ${subject}`
     }
 }
+
+class Student extends Person {
+    constructor(attributes){
+        super(attributes);
+        this.previousBackground = attributes.previousBackground;
+        this.className = attributes.className;
+        this.favSubjects = attributes.favSubjects;
+    }
+    listsSubjects(){
+        favSubjects.forEach(function(favSub){
+            return `${this.name} favorite subject is ${favSub}`
+        })
+    }
+    prAssignment(){
+        return `${this.name} has submitted a PR for ${subject}`
+    }
+    sprintChallenge(){
+        return `${this.name} has begun sprint challenge on ${subject}`
+    }
+}
+
