@@ -19,8 +19,8 @@ class Instructor extends Person {
     demo(subject){
         return `Today we are learning about ${subject}`;
     }
-    grade(Student, subject){
-        return `${Student.name} receives a perfect score on ${subject}`;
+    grade(subject){
+        return `${this.name} receives a perfect score on ${subject}`;
     }
 }
 
@@ -32,14 +32,14 @@ class Student extends Person {
         this.favSubjects = attributes.favSubjects;
     }
     listsSubjects(){
-        favSubjects.forEach(function(favSub){
-            return `${this.name} favorite subject is ${favSub}`;
-        })
+        favSubjects.forEach(function(element) {
+            return element;
+        });
     }
-    prAssignment(){
+    prAssignment(subject){
         return `${this.name} has submitted a PR for ${subject}`;
     }
-    sprintChallenge(){
+    sprintChallenge(subject){
         return `${this.name} has begun sprint challenge on ${subject}`;
     }
 }
@@ -51,12 +51,29 @@ class ProjectManager extends Instructor {
         this.favInstructor = attributes.favInstructor;
     }
     standUp(channel){
-        return `${this.name} announces to {channel}, @${channel} standy times`
+        return `${this.name} announces to ${channel}, @${channel} standup time`
     }
-    debugsCode(Student, subject){
-        return `${this.name} debugs ${student.name}'s code on ${subject}`
+    debugsCode(subject){
+        return `${this.name} debugs ${this.name}'s code on ${subject}`
     }
 }
+const shola = new Student({
+    name: 'Shola',
+    location: 'Nigeria',
+    age: 24,
+    favSubjects: ['Html', 'CSS', 'JavaScript'],
+    className: 'WEBEU2',
+    previousBackground: 'Data Analyst'
+})
+
+const jayne = new Student({
+    name: 'Jayne',
+    location: 'Scotland',
+    age: 28,
+    favSubjects: ['Python', 'C', 'C++'],
+    className: 'WEBEU2',
+    previousBackground: 'Python Developer'
+})
 
 const fred = new Instructor({
     name: 'Fred',
@@ -65,6 +82,38 @@ const fred = new Instructor({
     favLanguage: 'JavaScript',
     specialty: 'Front-end',
     catchPhrase: `Don't forget the homies`
-  });
+});
 
-  console.log(fred);
+const gabe = new Instructor({
+    name: 'Gabriel',
+    location: 'Spain',
+    age: 38,
+    favLanguage: 'C',
+    specialty: 'Back-end',
+    catchPhrase: `Let's go!`
+})
+
+const matt = new ProjectManager({
+    name: 'Matt',
+    location: 'England',
+    age: 30,
+    specialty: 'Front-end',
+    catchPhrase: `Don't forget the homies`,
+    gradClassName: 'CS1',
+    favInstructor: 'Sean',
+    favLanguage: 'C#'
+
+})
+
+console.log(fred);
+console.log(jayne);
+console.log(jayne.sprintChallenge('JavaScript Fundamental'));
+console.log(jayne.prAssignment('JavaScript Fundamental'));
+console.log(gabe);
+console.log(gabe.demo('Applied JavaScript'));
+console.log(gabe.grade.call(jayne, 'Applied JavaScript'));
+console.log(jayne.prAssignment('JavaScript Fundamental'));
+console.log(gabe.demo.call(jayne,'Applied JavaScript'))
+console.log(matt);
+console.log(matt.standUp('Webeu2_sprint03'))
+console.log(matt.debugsCode('Applied JavaScript'))
