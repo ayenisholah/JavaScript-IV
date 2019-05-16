@@ -8,3 +8,13 @@ class GameObject {
         return `${this.name} was removed from the game`;
     }
 }
+
+class CharacterStats extends GameObject {
+    constructor(attributes){
+        super(attributes);
+        this.healthPoints = charAttributes.healthPoints;
+    }
+    takeDamage(){
+        return `${this.name} took damage`;
+    }
+}
