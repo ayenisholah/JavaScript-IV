@@ -32,8 +32,8 @@ class Student extends Person {
         this.favSubjects = attributes.favSubjects;
     }
     listsSubjects(){
-        favSubjects.forEach(function(element) {
-            return element;
+        this.favSubjects.forEach(function(element) {
+            console.log(element);
         });
     }
     prAssignment(subject){
@@ -117,3 +117,4 @@ console.log(gabe.demo.call(jayne,'Applied JavaScript'))
 console.log(matt);
 console.log(matt.standUp('Webeu2_sprint03'))
 console.log(matt.debugsCode('Applied JavaScript'))
+console.log(jayne.listsSubjects())
